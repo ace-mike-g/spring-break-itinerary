@@ -33,6 +33,7 @@ export interface Activity {
   description: string;
   category: "meal" | "activity" | "travel" | "free-time" | "nightlife";
   location?: string;
+  mapUrl?: string;
   notes?: string;
 }
 
