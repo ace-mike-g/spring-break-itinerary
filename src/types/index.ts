@@ -44,6 +44,20 @@ export interface ItineraryDay {
   activities: Activity[];
 }
 
+export interface Meal {
+  label: string;
+  description: string;
+  type: "breakfast" | "lunch" | "snack" | "dinner";
+  skipped?: boolean;
+}
+
+export interface MenuDay {
+  dayNumber: number;
+  date: string;
+  dayOfWeek: string;
+  meals: Meal[];
+}
+
 export interface SectionLink {
   title: string;
   description: string;
