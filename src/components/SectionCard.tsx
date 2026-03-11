@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { Home, MessageCircle, Utensils, Calendar, type LucideIcon } from "lucide-react";
+import { Home, MessageCircle, Utensils, Calendar, CookingPot, type LucideIcon } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
   home: Home,
   quotes: MessageCircle,
   recommendations: Utensils,
   itinerary: Calendar,
+  menu: CookingPot,
 };
 
 interface SectionCardProps {

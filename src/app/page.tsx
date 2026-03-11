@@ -15,6 +15,12 @@ const sections = [
     icon: "quotes",
   },
   {
+    title: "Menu",
+    description: "What we're eating for breakfast, lunch & dinner every day",
+    href: "/menu",
+    icon: "menu",
+  },
+  {
     title: "Recommendations",
     description: "Our curated list of Austin restaurants, bars & activities",
     href: "/recommendations",
@@ -43,7 +49,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {sections.map((section) => (
             <SectionCard key={section.href} {...section} />
           ))}

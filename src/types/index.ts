@@ -33,6 +33,7 @@ export interface Activity {
   description: string;
   category: "meal" | "activity" | "travel" | "free-time" | "nightlife";
   location?: string;
+  mapUrl?: string;
   notes?: string;
 }
 
@@ -42,6 +43,20 @@ export interface ItineraryDay {
   title: string;
   summary: string;
   activities: Activity[];
+}
+
+export interface Meal {
+  label: string;
+  description: string;
+  type: "breakfast" | "lunch" | "snack" | "dinner";
+  skipped?: boolean;
+}
+
+export interface MenuDay {
+  dayNumber: number;
+  date: string;
+  dayOfWeek: string;
+  meals: Meal[];
 }
 
 export interface SectionLink {

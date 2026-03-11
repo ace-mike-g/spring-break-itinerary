@@ -1,63 +1,121 @@
-export interface DayMenu {
-  dayNumber: number;
-  date: string;
-  meals: {
-    type: "breakfast" | "lunch" | "dinner" | "snack";
-    title: string;
-    description: string;
-    location?: string;
-  }[];
-}
+import type { MenuDay } from "@/types";
 
-export const dailyMenu: DayMenu[] = [
+export const menu: MenuDay[] = [
   {
     dayNumber: 1,
-    date: "Friday, March 20",
+    date: "March 20",
+    dayOfWeek: "Friday",
     meals: [
-      { type: "dinner", title: "Welcome Dinner", description: "TBD — check back soon!" },
+      {
+        label: "Breakfast",
+        description: "",
+        type: "breakfast",
+        skipped: true,
+      },
+      {
+        label: "Lunch",
+        description: "",
+        type: "lunch",
+        skipped: true,
+      },
+      {
+        label: "Dinner",
+        description: "Chicken Thigh Bowls",
+        type: "dinner",
+      },
     ],
   },
   {
     dayNumber: 2,
-    date: "Saturday, March 21",
+    date: "March 21",
+    dayOfWeek: "Saturday",
     meals: [
-      { type: "breakfast", title: "TBD", description: "Check back soon!" },
-      { type: "lunch", title: "TBD", description: "Check back soon!" },
-      { type: "dinner", title: "TBD", description: "Check back soon!" },
+      {
+        label: "Breakfast",
+        description: "English Muffin Breakfast Sandwiches",
+        type: "breakfast",
+      },
+      {
+        label: "Lunch",
+        description: "Sandwiches",
+        type: "lunch",
+      },
+      {
+        label: "Snack",
+        description: "Hummus/Veggie & Fruit Plate",
+        type: "snack",
+      },
+      {
+        label: "Dinner",
+        description: "Franklin's BBQ",
+        type: "dinner",
+      },
     ],
   },
   {
     dayNumber: 3,
-    date: "Sunday, March 22",
+    date: "March 22",
+    dayOfWeek: "Sunday",
     meals: [
-      { type: "breakfast", title: "TBD", description: "Check back soon!" },
-      { type: "lunch", title: "TBD", description: "Check back soon!" },
-      { type: "dinner", title: "TBD", description: "Check back soon!" },
+      {
+        label: "Breakfast",
+        description: "Belgian Waffles",
+        type: "breakfast",
+      },
+      {
+        label: "Lunch",
+        description: "Breakfast Tacos Out",
+        type: "lunch",
+      },
+      {
+        label: "Dinner",
+        description: "Lasagna & Salad & Bread Sticks",
+        type: "dinner",
+      },
     ],
   },
   {
     dayNumber: 4,
-    date: "Monday, March 23",
+    date: "March 23",
+    dayOfWeek: "Monday",
     meals: [
-      { type: "breakfast", title: "TBD", description: "Check back soon!" },
-      { type: "lunch", title: "TBD", description: "Check back soon!" },
-      { type: "dinner", title: "TBD", description: "Check back soon!" },
+      {
+        label: "Breakfast",
+        description: "French Toast Casserole",
+        type: "breakfast",
+      },
+      {
+        label: "Lunch",
+        description: "Avocado Toast Bar",
+        type: "lunch",
+      },
+      {
+        label: "Dinner",
+        description: "Romme Fam Dinner",
+        type: "dinner",
+      },
     ],
   },
   {
     dayNumber: 5,
-    date: "Tuesday, March 24",
+    date: "March 24",
+    dayOfWeek: "Tuesday",
     meals: [
-      { type: "breakfast", title: "TBD", description: "Check back soon!" },
-      { type: "lunch", title: "TBD", description: "Check back soon!" },
-      { type: "dinner", title: "TBD", description: "Check back soon!" },
-    ],
-  },
-  {
-    dayNumber: 6,
-    date: "Wednesday, March 25",
-    meals: [
-      { type: "breakfast", title: "Farewell Breakfast", description: "TBD — check back soon!" },
+      {
+        label: "Breakfast",
+        description: "Yogurt/Chia Seed Parfaits",
+        type: "breakfast",
+      },
+      {
+        label: "Lunch",
+        description: "Leftovers",
+        type: "lunch",
+      },
+      {
+        label: "Dinner",
+        description: "Fresh Pasta w/ Basil Parm, Cherry Tomatoes & Chicken",
+        type: "dinner",
+      },
     ],
   },
 ];

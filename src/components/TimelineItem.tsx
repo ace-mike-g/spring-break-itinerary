@@ -1,3 +1,4 @@
+import { MapPin } from "lucide-react";
 import type { Activity } from "@/types";
 
 const categoryColors: Record<string, string> = {
@@ -39,7 +40,19 @@ export default function TimelineItem({ activity }: { activity: Activity }) {
         <h3 className="font-bold text-white">{activity.title}</h3>
         <p className="mt-0.5 text-sm text-white/60">{activity.description}</p>
         {activity.location && (
-          <p className="mt-1 text-xs text-white/40">{activity.location}</p>
+          activity.mapUrl ? (
+            <a
+              href={activity.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1.5 inline-flex items-center gap-1 text-xs font-semibold text-cyan-blue transition-colors hover:text-cyan-blue-light"
+            >
+              <MapPin className="h-3 w-3" />
+              {activity.location}
+            </a>
+          ) : (
+            <p className="mt-1 text-xs text-white/40">{activity.location}</p>
+          )
         )}
         {activity.notes && (
           <p className="mt-1 text-xs italic text-white/40">{activity.notes}</p>

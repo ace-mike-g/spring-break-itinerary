@@ -1,81 +1,104 @@
-import { UtensilsCrossed, Coffee, Sun, Moon } from "lucide-react";
+import {
+  Coffee,
+  Sun,
+  Cookie,
+  UtensilsCrossed,
+  Minus,
+} from "lucide-react";
 import PageHeader from "@/components/PageHeader";
-import { dailyMenu } from "@/data/menu";
-import type { LucideIcon } from "lucide-react";
+import { menu } from "@/data/menu";
+import type { Meal } from "@/types";
 
-const mealIcons: Record<string, LucideIcon> = {
-  breakfast: Coffee,
-  lunch: Sun,
-  dinner: Moon,
-  snack: UtensilsCrossed,
+const mealConfig: Record<
+  Meal["type"],
+  { icon: typeof Coffee; color: string; bg: string; dot: string }
+> = {
+  breakfast: {
+    icon: Coffee,
+    color: "text-electric-orange",
+    bg: "bg-electric-orange/15",
+    dot: "bg-electric-orange",
+  },
+  lunch: {
+    icon: Sun,
+    color: "text-cyan-blue",
+    bg: "bg-cyan-blue/15",
+    dot: "bg-cyan-blue",
+  },
+  snack: {
+    icon: Cookie,
+    color: "text-neon-green",
+    bg: "bg-neon-green/15",
+    dot: "bg-neon-green",
+  },
+  dinner: {
+    icon: UtensilsCrossed,
+    color: "text-hot-pink",
+    bg: "bg-hot-pink/15",
+    dot: "bg-hot-pink",
+  },
 };
 
-const mealColors: Record<string, string> = {
-  breakfast: "bg-electric-orange/15 text-electric-orange",
-  lunch: "bg-neon-green/15 text-neon-green",
-  dinner: "bg-hot-pink/15 text-hot-pink",
-  snack: "bg-cyan-blue/15 text-cyan-blue",
-};
-
-const dayAccents = [
-  "border-hot-pink/40",
-  "border-electric-orange/40",
-  "border-neon-green/40",
-  "border-cyan-blue/40",
-  "border-hot-pink/40",
-  "border-electric-orange/40",
-];
-
-const dayAccentText = [
-  "text-hot-pink",
-  "text-electric-orange",
-  "text-neon-green",
-  "text-cyan-blue",
-  "text-hot-pink",
-  "text-electric-orange",
+const accentBorders = [
+  "border-l-hot-pink",
+  "border-l-cyan-blue",
+  "border-l-neon-green",
+  "border-l-electric-orange",
+  "border-l-hot-pink-light",
 ];
 
 export default function MenuPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <div className="mx-auto max-w-4xl px-4 py-12">
       <PageHeader
-        title="Daily Menu"
-        subtitle="What we're eating each day"
+        title="Menu"
+        subtitle="What we're eating all week"
       />
 
       <div className="space-y-6">
-        {dailyMenu.map((day) => (
+        {menu.map((day, idx) => (
           <div
             key={day.dayNumber}
-            className={`rounded-2xl border bg-dark-card p-6 ${dayAccents[(day.dayNumber - 1) % dayAccents.length]}`}
+            className={`rounded-2xl border border-warm-200 ${accentBorders[idx % accentBorders.length]} border-l-4 bg-dark-card p-6`}
           >
-            <div className="mb-4">
-              <span className={`text-xs font-bold uppercase tracking-wide ${dayAccentText[(day.dayNumber - 1) % dayAccentText.length]}`}>
-                Day {day.dayNumber}
+            <div className="mb-4 flex items-baseline gap-3">
+              <span className="text-lg font-extrabold text-white">
+                {day.dayOfWeek}
               </span>
-              <h2 className="text-lg font-bold text-white">{day.date}</h2>
+              <span className="text-sm font-semibold text-white/40">
+                {day.date}
+              </span>
             </div>
 
             <div className="space-y-3">
-              {day.meals.map((meal, i) => {
-                const Icon = mealIcons[meal.type] || UtensilsCrossed;
-                const colorClass = mealColors[meal.type] || "bg-warm-100 text-white/60";
+              {day.meals.map((meal) => {
+                const config = mealConfig[meal.type];
+                const Icon = meal.skipped ? Minus : config.icon;
 
                 return (
-                  <div key={i} className="flex gap-3 rounded-xl border border-warm-200 bg-dark-bg p-4">
-                    <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${colorClass}`}>
-                      <Icon className="h-4 w-4" />
+                  <div
+                    key={`${day.dayNumber}-${meal.label}`}
+                    className={`flex items-center gap-3 ${meal.skipped ? "opacity-40" : ""}`}
+                  >
+                    <div
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${meal.skipped ? "bg-warm-200" : config.bg}`}
+                    >
+                      <Icon
+                        className={`h-4 w-4 ${meal.skipped ? "text-white/40" : config.color}`}
+                      />
                     </div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className={`text-xs font-bold uppercase ${colorClass.split(" ")[1]}`}>
-                          {meal.type}
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-xs font-semibold uppercase tracking-wide text-white/50">
+                        {meal.label}
+                      </span>
+                      {meal.skipped ? (
+                        <span className="text-sm italic text-white/30 line-through">
+                          N/A — 2pm arrival
                         </span>
-                      </div>
-                      <h3 className="font-bold text-white">{meal.title}</h3>
-                      <p className="text-sm text-white/60">{meal.description}</p>
-                      {meal.location && (
-                        <p className="mt-0.5 text-xs text-white/40">{meal.location}</p>
+                      ) : (
+                        <span className="text-sm font-semibold text-white/90">
+                          {meal.description}
+                        </span>
                       )}
                     </div>
                   </div>
