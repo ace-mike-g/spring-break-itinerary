@@ -87,11 +87,9 @@ export const itinerary: ItineraryDay[] = [
       {
         time: "6:00 PM",
         title: "Dinner: Franklin's BBQ",
-        description: "The legendary Austin BBQ. Worth every bite.",
+        description: "The legendary Austin BBQ — takeout brought back to the house.",
         category: "meal",
-        location: "900 E 11th St, Austin, TX 78702",
-        mapUrl:
-          "https://maps.google.com/?q=Franklin+Barbecue,+900+E+11th+St,+Austin,+TX+78702",
+        notes: "Pickup from Franklin Barbecue, 900 E 11th St.",
       },
     ],
   },
