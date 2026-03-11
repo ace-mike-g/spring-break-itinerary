@@ -64,7 +64,7 @@ export const menu: MenuDay[] = [
       },
       {
         label: "Lunch",
-        description: "Breakfast Tacos Out",
+        description: "Lunch at Sherwood Forest Faire",
         type: "lunch",
       },
       {

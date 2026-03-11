@@ -14,6 +14,7 @@ export const houseInfo: HouseInfo = {
     "Shoes belong in the mud room",
     "Water bottles should be placed on the water bottle table",
     "No kids on the balcony",
+    "No food upstairs",
   ],
   amenities: [
     { icon: "waves", label: "Heated Pool" },

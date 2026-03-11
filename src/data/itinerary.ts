@@ -108,17 +108,11 @@ export const itinerary: ItineraryDay[] = [
       {
         time: "9:00 AM",
         title: "Church at Austin Ridge Bible Church",
-        description: "Sunday service at the Southwest campus.",
+        description: "Sunday service at the Bee Cave campus.",
         category: "activity",
-        location: "7416 W Highway 71, Austin, TX 78735",
+        location: "9300 Bee Caves Rd, Austin, TX 78733",
         mapUrl:
-          "https://maps.google.com/?q=Austin+Ridge+Bible+Church,+7416+W+Highway+71,+Austin,+TX+78735",
-      },
-      {
-        time: "12:00 PM",
-        title: "Lunch: Breakfast Tacos Out",
-        description: "Grab breakfast tacos at a local spot on the way back.",
-        category: "meal",
+          "https://maps.google.com/?q=Austin+Ridge+Bible+Church,+9300+Bee+Caves+Rd,+Austin,+TX+78733",
       },
       {
         time: "2:00 PM",
@@ -129,7 +123,7 @@ export const itinerary: ItineraryDay[] = [
         location: "1883 Old Hwy 20, McDade, TX 78650",
         mapUrl:
           "https://maps.google.com/?q=Sherwood+Forest+Faire,+1883+Old+Hwy+20,+McDade,+TX+78650",
-        notes: "~40 min drive from the house.",
+        notes: "~40 min drive from the house. Grab lunch at the faire!",
       },
       {
         time: "6:30 PM",
